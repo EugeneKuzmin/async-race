@@ -56,7 +56,7 @@ class RoadNCar {
   private createCar(): void {
     const carParams: Partial<ElementParams> = {
       tag: 'div',
-      classNames: ['car','mask'],
+      classNames: ['car', 'mask'],
       textContent: '',
       elementAttributes: {
         style: `background-color: ${this.carColor}`
