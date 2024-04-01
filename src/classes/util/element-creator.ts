@@ -1,7 +1,9 @@
+type attr = { type?: string; style?: string };
 type ElementParams = {
   tag: string;
   classNames: string[];
   textContent: string;
+  elementAttributes: attr;
   callback: () => void;
 };
 export default class ElementCreator {
@@ -28,6 +30,7 @@ export default class ElementCreator {
     this.setCssClasses(params.classNames);
     this.setTextContent(params.textContent);
     this.setCallback(params.callback);
+    this.setType(params.elementAttributes);
   }
 
   setCssClasses(cssClasses: string[] = []) {
@@ -37,6 +40,19 @@ export default class ElementCreator {
   setTextContent(text: string = ''): void {
     if (this.element) {
       this.element.textContent = text;
+    }
+  }
+
+  setType(type: attr): void {
+    if (type) {
+      if (this.element) {
+        if (type.type) {
+          this.element.setAttribute('type', type.type);
+        }
+        if (type.style) {
+          this.element.setAttribute('style', type.style);
+        }
+      }
     }
   }
 

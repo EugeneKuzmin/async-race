@@ -1,9 +1,11 @@
 import ElementCreator from '../element-creator.ts';
+type attr = { type: string };
 
 type ElementParams = {
   tag: string;
   classNames: string[];
   textContent: string;
+  elementAttributes: attr;
   callback: () => void;
 };
 
@@ -22,6 +24,7 @@ class Button {
       tag: 'button',
       classNames: ['button'],
       textContent: label,
+      elementAttributes: { type: '' },
       callback: () => {
         if (this.callback) {
           this.callback();
