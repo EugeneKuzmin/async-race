@@ -1,4 +1,5 @@
 import ElementCreator from '../element-creator';
+import './style.css';
 
 type cssClasses = {
   CONTAINER: string;
