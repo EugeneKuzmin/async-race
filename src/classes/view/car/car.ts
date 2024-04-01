@@ -20,7 +20,7 @@ class RoadNCar {
     this.car = null;
     this.roadContainer = null;
     this.road = null;
-    this.carColor = '#ffff00';
+    this.carColor = '#ff0560';
     this.createRoadContainer();
     this.createRoad();
     this.createCar();
@@ -56,7 +56,7 @@ class RoadNCar {
   private createCar(): void {
     const carParams: Partial<ElementParams> = {
       tag: 'div',
-      classNames: ['car'],
+      classNames: ['car','mask'],
       textContent: '',
       elementAttributes: {
         style: `background-color: ${this.carColor}`
