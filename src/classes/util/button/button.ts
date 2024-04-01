@@ -1,4 +1,5 @@
 import ElementCreator from '../element-creator.ts';
+import './style.css';
 type attr = { type: string };
 
 type ElementParams = {
