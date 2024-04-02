@@ -17,6 +17,13 @@ export default class ElementCreator {
     return this.element;
   }
 
+  clearElement(): void {
+    if (this.element) {
+      console.log('cleared');
+        this.element.innerHTML = '';
+    }
+}
+
   addInnerElement(element: HTMLElement | ElementCreator): void {
     if (element instanceof ElementCreator) {
       this.element?.append(element.getElement()!);

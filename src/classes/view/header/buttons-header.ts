@@ -2,6 +2,9 @@ import Button from '../../util/button/button.ts';
 import ElementCreator from '../../util/element-creator.ts';
 import InputText from '../../util/input-text/input-text.ts';
 import InputColor from '../../util/input-color/input-color.ts';
+import Main from '../main/main.ts'; 
+import RoadNCar from '../car/car.ts';
+import App from '../../../main.ts';
 
 type attr = { type: string };
 type ElementParams = {
@@ -21,11 +24,17 @@ class PageViewButtons {
   private inputText: InputText;
   private inputColor: InputText;
 
+  private roadNCar: RoadNCar;
+
+  private main: Main;
+
   constructor() {
     this.header = null;
     this.garage = new Button('Garage', this.garageGetCars.bind(this));
     this.winner = new Button('Winners', this.getWinners.bind(this));
     this.createCar = new Button('Create', this.postColor.bind(this));
+    this.roadNCar = new RoadNCar();
+    this.main = new Main();
 
     const inputTextParams: Partial<ElementParams> = {
       tag: 'input',
@@ -89,6 +98,16 @@ class PageViewButtons {
     return this.winner;
   }
 
+  private renderCar(): void {
+    const roadNCarEl = new RoadNCar().getElement();
+
+    if (roadNCarEl) {
+      const main = document.querySelector('.main-tracks')
+      this.main.clearMain();
+      main?.appendChild(roadNCarEl);
+    }
+  }
+
   private async garageGetCars(): Promise<void> {
     try {
       const response = await fetch('http://127.0.0.1:3000/garage');
@@ -96,10 +115,7 @@ class PageViewButtons {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
-      console.log('Response from server:', data);
-      // Handle response data as needed
     } catch (error) {
-      console.error('Error fetching data:', error);
     }
   }
   private async getWinners(): Promise<void> {
@@ -109,10 +125,8 @@ class PageViewButtons {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
-      console.log('Response from server:', data);
-      // Handle response data as needed
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error(error);
     }
   }
 
@@ -134,10 +148,10 @@ class PageViewButtons {
           if (!response.ok) {
             throw new Error('Failed to post color');
           }
-          console.log('Color posted successfully');
+          this.renderCar();
         })
         .catch((error) => {
-          console.error('Error posting color:', error);
+          console.error(error);
         });
     }
   }
