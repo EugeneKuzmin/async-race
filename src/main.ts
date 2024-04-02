@@ -3,10 +3,9 @@ import PageViewButtons from './classes/view/header/buttons-header';
 import Main from './classes/view/main/main';
 
 export default class App {
-
-  private main:Main;
+  private main: Main;
   constructor() {
-    this.main = new Main()
+    this.main = new Main();
     this.createView();
   }
 
@@ -26,7 +25,7 @@ export default class App {
 
   getMain(): HTMLElement | null {
     if (this.main) {
-        return this.main;
+      return this.main;
     }
-}
+  }
 }

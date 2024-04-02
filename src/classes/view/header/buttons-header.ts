@@ -2,7 +2,7 @@ import Button from '../../util/button/button.ts';
 import ElementCreator from '../../util/element-creator.ts';
 import InputText from '../../util/input-text/input-text.ts';
 import InputColor from '../../util/input-color/input-color.ts';
-import Main from '../main/main.ts'; 
+import Main from '../main/main.ts';
 import RoadNCar from '../car/car.ts';
 import App from '../../../main.ts';
 
@@ -102,7 +102,7 @@ class PageViewButtons {
     const roadNCarEl = new RoadNCar().getElement();
 
     if (roadNCarEl) {
-      const main = document.querySelector('.main-tracks')
+      const main = document.querySelector('.main-tracks');
       this.main.clearMain();
       main?.appendChild(roadNCarEl);
     }
@@ -115,8 +115,7 @@ class PageViewButtons {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
-    } catch (error) {
-    }
+    } catch (error) {}
   }
   private async getWinners(): Promise<void> {
     try {

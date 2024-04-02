@@ -20,9 +20,9 @@ export default class ElementCreator {
   clearElement(): void {
     if (this.element) {
       console.log('cleared');
-        this.element.innerHTML = '';
+      this.element.innerHTML = '';
     }
-}
+  }
 
   addInnerElement(element: HTMLElement | ElementCreator): void {
     if (element instanceof ElementCreator) {

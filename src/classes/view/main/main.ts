@@ -22,10 +22,8 @@ class Main {
 
   addInnerElement(element: HTMLElement | ElementCreator): void {
     if (element instanceof ElementCreator) {
-      
       this.main?.appendChild(element.getElement()!);
     } else {
-     
       this.main?.appendChild(element);
     }
   }
@@ -45,17 +43,12 @@ class Main {
     if (roadNCarEl) {
       mainCreator.addInnerElement(roadNCarEl);
     }
-
-   
   }
 
-  clearMain(): void{
-    if(this.main){
-      this.main.innerHTML = ''
-
+  clearMain(): void {
+    if (this.main) {
+      this.main.innerHTML = '';
     }
-    
-    
   }
 
   getMain(): HTMLElement | null {
