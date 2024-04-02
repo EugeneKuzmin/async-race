@@ -10,7 +10,7 @@ type ElementParams = {
   callback: () => void;
 };
 
-class main {
+class Main {
   private main: HTMLElement | null;
   private roadNCar: RoadNCar;
 
@@ -18,6 +18,16 @@ class main {
     this.main = null;
     this.roadNCar = new RoadNCar();
     this.createMain();
+  }
+
+  addInnerElement(element: HTMLElement | ElementCreator): void {
+    if (element instanceof ElementCreator) {
+      
+      this.main?.appendChild(element.getElement()!);
+    } else {
+     
+      this.main?.appendChild(element);
+    }
   }
 
   private createMain(): void {
@@ -35,10 +45,26 @@ class main {
     if (roadNCarEl) {
       mainCreator.addInnerElement(roadNCarEl);
     }
+
+    const roadNCar2 = new RoadNCar();
+    const roadNCarEl2 = roadNCar2.getElement();
+    if (roadNCarEl2) {
+      mainCreator.addInnerElement(roadNCarEl2);
+    }
   }
+
+  clearMain(): void{
+    if(this.main){
+      this.main.innerHTML = ''
+
+    }
+    
+    
+  }
+
   getMain(): HTMLElement | null {
     return this.main;
   }
 }
 
-export default main;
+export default Main;

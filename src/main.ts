@@ -3,7 +3,10 @@ import PageViewButtons from './classes/view/header/buttons-header';
 import Main from './classes/view/main/main';
 
 export default class App {
+
+  private main:Main;
   constructor() {
+    this.main = new Main()
     this.createView();
   }
 
@@ -11,8 +14,7 @@ export default class App {
     const headerBtns = new PageViewButtons();
     const headerElement: HTMLElement | null = headerBtns.getHeader();
 
-    const main = new Main();
-    const mainElement: HTMLElement | null = main.getMain();
+    const mainElement: HTMLElement | null = this.main.getMain();
 
     if (headerElement) {
       document.body.appendChild(headerElement);
@@ -21,4 +23,10 @@ export default class App {
       document.body.appendChild(mainElement);
     }
   }
+
+  getMain(): HTMLElement | null {
+    if (this.main) {
+        return this.main;
+    }
+}
 }
