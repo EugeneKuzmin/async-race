@@ -46,11 +46,7 @@ class Main {
       mainCreator.addInnerElement(roadNCarEl);
     }
 
-    const roadNCar2 = new RoadNCar();
-    const roadNCarEl2 = roadNCar2.getElement();
-    if (roadNCarEl2) {
-      mainCreator.addInnerElement(roadNCarEl2);
-    }
+   
   }
 
   clearMain(): void{
