@@ -4,7 +4,6 @@ import InputText from '../../util/input-text/input-text.ts';
 import InputColor from '../../util/input-color/input-color.ts';
 import Main from '../main/main.ts';
 import RoadNCar from '../car/car.ts';
-import App from '../../../main.ts';
 
 type attr = { type: string };
 type ElementParams = {
@@ -23,7 +22,6 @@ class PageViewButtons {
 
   private inputText: InputText;
   private inputColor: InputText;
-
   private roadNCar: RoadNCar;
 
   private main: Main;
@@ -99,7 +97,7 @@ class PageViewButtons {
   }
 
   private renderCar(): void {
-    const roadNCarEl = new RoadNCar().getElement();
+    const roadNCarEl = this.roadNCar.getElement();
 
     if (roadNCarEl) {
       const main = document.querySelector('.main-tracks');
