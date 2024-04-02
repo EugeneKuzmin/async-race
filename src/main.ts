@@ -22,10 +22,4 @@ export default class App {
       document.body.appendChild(mainElement);
     }
   }
-
-  getMain(): HTMLElement | null {
-    if (this.main) {
-      return this.main;
-    }
-  }
 }

@@ -113,6 +113,7 @@ class PageViewButtons {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
+      console.log(data);
     } catch (error) {}
   }
   private async getWinners(): Promise<void> {
@@ -122,6 +123,7 @@ class PageViewButtons {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
